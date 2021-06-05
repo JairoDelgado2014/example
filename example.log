@@ -1,0 +1,2 @@
+[http-nio-9090-exec-1] INFO  com.example.demo.services.ClienteService  - llamado desde la busqueda por key
+[http-nio-9090-exec-8] INFO  com.example.demo.services.ClienteService  - llamado desde la busqueda por key
