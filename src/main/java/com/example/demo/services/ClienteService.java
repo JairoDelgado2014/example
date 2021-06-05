@@ -31,9 +31,22 @@ public class ClienteService {
 		if (cliente.isPresent()) {
 			logger.info("llamado desde la busqueda por key");
 			return cliente.get();
-			
-		}		
+		}
 		return null;
 	}
 
+	public void deleteById(Integer id) {
+		clienteRepository.deleteById(id);
+		logger.warn("Registro con: " + id + "eliminado");
+	}
+
+	public ClientEntity update(ClientEntity entity) {
+		Optional<ClientEntity> cliente = clienteRepository.findById(entity.getId());
+		if (cliente.isPresent()) {
+			logger.warn("Registro con: " + entity.getId() + "actualizado con éxito");
+			return clienteRepository.save(entity);
+		}
+		logger.warn("Registro con: " + entity.getId() + "fallo al actualizar");
+		return null;
+	}
 }
